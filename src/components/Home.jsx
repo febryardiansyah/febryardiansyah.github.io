@@ -1,5 +1,6 @@
 import React from 'react'
 import './home.css'
+import { animations } from 'react-animation'
 
 export default function Home() {
     return (
@@ -9,15 +10,22 @@ export default function Home() {
         }}>
             <div className="row">
                 <div className="col-md-8">
-                    <h1>hello, i’m</h1>
+                    <h1 style={{
+                        animation:animations.fadeInUp
+                    }}>hello, i’m</h1>
                     <div style={{
                         color:'#EB5757',
                         fontSize:'80px',
                         fontWeight:'bold',
+                        animation:animations.fadeInUp
                     }}>Febry Ardiansyah</div>
-                    <h4>Software engineering student at Institute Teknologi Telkom Purwokerto that currently learning Flutter, NodeJs, and ReactJS.</h4>
+                    <h4 style={{
+                        animation:animations.fadeInUp
+                    }}>Software engineering student at Institute Teknologi Telkom Purwokerto that currently learning Flutter, NodeJs, and ReactJS.</h4>
                     <div>
-                        <div className="social-icon text-center mt-5 mb-3">
+                        <div className="social-icon text-center mt-5 mb-3" style={{
+                            animation:animations.slideIn
+                        }}>
                             <a href="https://github.com/febryardiansyah" className="link-secondary"><i className="fab fa-github me-2"> </i></a> 
                             <a href="https://instagram.com/febry_ardiansyah24" className="link-secondary"><i className="fab fa-instagram me-2"></i></a>
                             <a href="mailto:febryardiansyah27@gmail.com" className="link-secondary"><i className="far fa-envelope me-2"></i></a>
@@ -28,7 +36,8 @@ export default function Home() {
                 </div>
                 <div className="col-md-4 d-flex justify-content-center">
                     <img src="/assets/me.jpeg" alt="" className='rounded-circle' style={{
-                        width:'370px',height:'370px',objectFit:'cover'
+                        width:'370px',height:'370px',objectFit:'cover',
+                        animation:animations.bounceIn
                     }}/>
                 </div>
             </div>
