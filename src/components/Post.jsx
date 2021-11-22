@@ -35,20 +35,6 @@ export default function Post() {
     }, [])
     console.log(data);
 
-    function formatDate(date) {
-        return new Intl.DateTimeFormat('en-US', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' }).format(date)
-    }
-
-    const serializers = {
-        types: {
-            code: (props) => (
-                <pre data-language={props.node.language}>
-                    <code>{props.node.code}</code>
-                </pre>
-            ),
-        },
-    }
-
     if (loading) {
         return (
             <div className="container">
@@ -75,7 +61,11 @@ export default function Post() {
                                                     <div className="badge bg-secondary me-1">{c.title}</div>
                                                 ))
                                             }
-                                            <p class="card-text">{post.body[0].children[0].text}</p>
+                                            <p class="card-text">{
+                                                post.body[0].children[0].text.length > 120?
+                                                `${post.body[0].children[0].text.substring(0, 120)}..`:
+                                                post.body[0].children[0].text
+                                            }</p>
                                         </div>
                                         <div class="card-footer text-muted font-monospace">
                                             {new Date(post.publishedAt).toLocaleDateString()}

@@ -35,7 +35,7 @@ export default function Home() {
                     </div>
                 </div>
                 <div className="col-md-4 d-flex justify-content-center">
-                    <img src="/assets/me.jpeg" alt="" className='rounded-circle' style={{
+                    <img src="/assets/me2.jpeg" alt="" className='rounded-circle' style={{
                         width:'370px',height:'370px',objectFit:'cover',
                         animation:animations.bounceIn
                     }}/>

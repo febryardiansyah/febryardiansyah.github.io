@@ -1,4 +1,4 @@
-  .nav-item .item{
+  /* .nav-item .item{
     position: relative;
     display: block;
     text-decoration: none;
@@ -24,4 +24,7 @@
   .nav-item .item:hover::after {
     transform: scaleX(1);
     transform-origin: left;
+  } */
+  .nav-item .item{
+    margin-right: 10px;
   }

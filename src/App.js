@@ -14,9 +14,8 @@ function App() {
       <Routes>
         <Route element={<Home/>} path='/' index />
         <Route element={<About/>} path='/about'/>
-        <Route element={<Post/>} path='/posts'>
-          <Route element={<SinglePost/>} path=':slug'/>
-        </Route>
+        <Route element={<Post/>} path='/posts'/>
+        <Route element={<SinglePost/>} path='/post/:slug'/>
         <Route element={<Project/>} path='/projects'/>
       </Routes>
     </BrowserRouter>
