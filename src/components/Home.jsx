@@ -5,7 +5,7 @@ import { animations } from 'react-animation'
 export default function Home() {
     return (
         <div className="container d-flex flex-column justify-content-center align-items-center mt-5" style={{
-            height: 'calc(100vh - 100px)',
+            height: 'calc(100vh - 110px)',
 
         }}>
             <div className="row">
