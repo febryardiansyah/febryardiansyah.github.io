@@ -7,6 +7,11 @@
     cursor: pointer
 }
 a {
-    color: #FFFFFF;
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    color: black;
     text-decoration: none;
 }
