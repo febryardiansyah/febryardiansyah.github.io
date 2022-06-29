@@ -10,7 +10,7 @@ export default function About() {
                     animation:animations.fadeIn
                 }}>
                     <p className='mt-5'>Hi, iam Febry Ardiansyah ✋</p>
-                    <p>Software engineering student at Institute Teknologi Telkom Purwokerto that currently learning Flutter, NodeJs, and ReactJS.I have a lot of experience building an Android and IOS app using Flutter SDK. I've finished a lots of project related to Flutter, i also familiar using nodejs, reactJs, mongoDB, and Firebase</p>
+                    <p>Bachelor of Computer Science at the Software Engineering that currently learning Flutter, NodeJs, and ReactJS.I have a lot of experience building an Android and IOS app using Flutter SDK. I've finished a lots of project related to Flutter, i also familiar using nodejs, reactJs, mongoDB, and Firebase</p>
                 </div>
                 <div className="skills mt-5" style={{
                     animation:animations.fadeInUp
