@@ -2,6 +2,7 @@ import type React from "react"
 import "./globals.css"
 import type { Metadata } from "next"
 import { Inter, JetBrains_Mono } from "next/font/google"
+import StravaFAB from "@/components/strava-fab"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -27,7 +28,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${jetbrainsMono.variable} font-sans`}>{children}</body>
+      <body className={`${inter.variable} ${jetbrainsMono.variable} font-sans`}>
+        {children}
+        <StravaFAB />
+      </body>
     </html>
   )
 }
