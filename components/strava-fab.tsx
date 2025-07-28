@@ -80,6 +80,7 @@ const StravaFAB: React.FC = () => {
   const [activities, setActivities] = useState<StravaActivity[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [hasDataBeenFetched, setHasDataBeenFetched] = useState(false);
 
   const fetchStravaActivities = async () => {
     try {
@@ -89,22 +90,24 @@ const StravaFAB: React.FC = () => {
       const response = await axios.get('/api/strava/activities');
       
       setActivities(response.data);
+      setHasDataBeenFetched(true);
     } catch (err) {
       console.error('Error fetching Strava activities:', err);
       setError('Failed to load activities. Please try again later.');
       // Fallback to mock data if API fails
       setActivities(mockActivities);
+      setHasDataBeenFetched(true);
     } finally {
       setIsLoading(false);
     }
   };
   
   useEffect(() => {
-    // Fetch activities when component mounts or when the card is opened
-    if (isOpen) {
+    // Fetch activities only when the card is opened for the first time
+    if (isOpen && !hasDataBeenFetched) {
       fetchStravaActivities();
     }
-  }, [isOpen]);
+  }, [isOpen, hasDataBeenFetched]);
 
   const formatDistance = (meters: number): string => {
     const kilometers = meters / 1000;
