@@ -8,7 +8,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Separator } from '@/components/ui/separator';
 import { Badge } from '@/components/ui/badge';
 import { formatDistanceToNow } from 'date-fns';
-import { X, RefreshCw } from 'lucide-react';
+import { X, RefreshCw, ExternalLink } from 'lucide-react';
 import axios from 'axios';
 
 interface StravaActivity {
@@ -180,6 +180,17 @@ const StravaFAB: React.FC = () => {
             <CardDescription className="text-zinc-400">
               My recent Strava activities
             </CardDescription>
+            <div className="flex justify-start mt-2">
+              <Button 
+                variant="outline" 
+                size="sm" 
+                className="bg-zinc-800 text-zinc-100 border-zinc-700 hover:bg-zinc-700 text-xs px-2 py-1 h-auto"
+                onClick={() => window.open('https://www.strava.com/athletes/164661299', '_blank')}
+              >
+                <ExternalLink className="h-3 w-3 mr-1" />
+                Profile
+              </Button>
+            </div>
           </CardHeader>
           <Separator className="bg-zinc-700/50" />
           <ScrollArea className="h-[calc(70vh-8rem)]">
