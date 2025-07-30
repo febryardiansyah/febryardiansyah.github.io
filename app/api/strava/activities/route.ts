@@ -76,7 +76,7 @@ async function refreshAccessToken(refreshToken?: string) {
       expires_at: data.expires_at,
       expires_in: data.expires_in,
       token_type: data.token_type,
-      scope: data.scope,
+      // scope: data.scope,
       updated_at: new Date(),
     };
     
