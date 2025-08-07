@@ -1,4 +1,5 @@
 import { Github, Twitter, Linkedin, Mail, FileDown } from "lucide-react"
+import SocialMediaWrapper from "@/components/social-media-wrapper"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
@@ -29,6 +30,52 @@ export default function Home() {
             <div className="text-center sm:text-left">
               <h1 className="text-3xl font-bold font-mono">Febry Ardiansyah</h1>
               <p className="text-zinc-400 font-mono">Mobile Apps and Frontend Engineer</p>
+              <div className="header-social-media flex flex-wrap items-center justify-center sm:justify-start gap-3 mt-3">
+                <Link href="https://github.com/febryardiansyah/" target="_blank" rel="noopener noreferrer">
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    className="rounded-full bg-zinc-900/70 border-zinc-800 hover:bg-zinc-800 hover:text-emerald-400 backdrop-blur-sm"
+                  >
+                    <Github className="h-5 w-5" />
+                    <span className="sr-only">GitHub</span>
+                  </Button>
+                </Link>
+                <Link href="https://x.com/febryards" target="_blank" rel="noopener noreferrer">
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    className="rounded-full bg-zinc-900/70 border-zinc-800 hover:bg-zinc-800 hover:text-blue-400 backdrop-blur-sm"
+                  >
+                    <Twitter className="h-5 w-5" />
+                    <span className="sr-only">Twitter</span>
+                  </Button>
+                </Link>
+                <Link
+                  href="https://www.linkedin.com/in/febry-ardiansyah-a4b580170/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    className="rounded-full bg-zinc-900/70 border-zinc-800 hover:bg-zinc-800 hover:text-blue-500 backdrop-blur-sm"
+                  >
+                    <Linkedin className="h-5 w-5" />
+                    <span className="sr-only">LinkedIn</span>
+                  </Button>
+                </Link>
+                <Link href="mailto:febryardiansyah27@gmail.com">
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    className="rounded-full bg-zinc-900/70 border-zinc-800 hover:bg-zinc-800 hover:text-amber-400 backdrop-blur-sm"
+                  >
+                    <Mail className="h-5 w-5" />
+                    <span className="sr-only">Email</span>
+                  </Button>
+                </Link>
+              </div>
             </div>
           </div>
         </section>
@@ -284,55 +331,9 @@ export default function Home() {
         </footer>
       </div>
 
-      {/* Sticky Bottom Navigation */}
-      <div className="fixed bottom-0 left-0 right-0 z-50 py-3 px-4">
-        <div className="mx-auto bg-zinc-900/70 backdrop-blur-md border border-zinc-800/50 rounded-full px-6 py-3 flex flex-wrap items-center justify-center gap-3 w-fit max-w-3xl">
-          <Link href="https://github.com/febryardiansyah/" target="_blank" rel="noopener noreferrer">
-            <Button
-              variant="outline"
-              size="icon"
-              className="rounded-full bg-zinc-900/70 border-zinc-800 hover:bg-zinc-800 hover:text-emerald-400 backdrop-blur-sm"
-            >
-              <Github className="h-5 w-5" />
-              <span className="sr-only">GitHub</span>
-            </Button>
-          </Link>
-          <Link href="https://x.com/febryards" target="_blank" rel="noopener noreferrer">
-            <Button
-              variant="outline"
-              size="icon"
-              className="rounded-full bg-zinc-900/70 border-zinc-800 hover:bg-zinc-800 hover:text-blue-400 backdrop-blur-sm"
-            >
-              <Twitter className="h-5 w-5" />
-              <span className="sr-only">Twitter</span>
-            </Button>
-          </Link>
-          <Link
-            href="https://www.linkedin.com/in/febry-ardiansyah-a4b580170/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Button
-              variant="outline"
-              size="icon"
-              className="rounded-full bg-zinc-900/70 border-zinc-800 hover:bg-zinc-800 hover:text-blue-500 backdrop-blur-sm"
-            >
-              <Linkedin className="h-5 w-5" />
-              <span className="sr-only">LinkedIn</span>
-            </Button>
-          </Link>
-          <Link href="mailto:febryardiansyah27@gmail.com">
-            <Button
-              variant="outline"
-              size="icon"
-              className="rounded-full bg-zinc-900/70 border-zinc-800 hover:bg-zinc-800 hover:text-amber-400 backdrop-blur-sm"
-            >
-              <Mail className="h-5 w-5" />
-              <span className="sr-only">Email</span>
-            </Button>
-          </Link>
-        </div>
-      </div>
+      {/* Floating Social Media Navigation (appears when scrolled to bottom) */}
+      <SocialMediaWrapper />
+
     </main>
   )
 }
