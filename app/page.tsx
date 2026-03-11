@@ -50,7 +50,7 @@ export default function Home() {
                  Specialized in <span className="text-emerald-400 font-semibold">Flutter</span>, <span className="text-blue-400 font-semibold">React</span>, and <span className="text-white font-semibold">Next.js</span>.
                </p>
                <div className="flex flex-wrap gap-3">
-                  <Link href="https://drive.google.com/file/d/1AOHZpkqbuNiuvFVkAwJq8aU0aBDcOoif/view?usp=sharing" target="_blank">
+                  <Link href="https://drive.google.com/file/d/1fg7eGgiI3cgq44DECppLB7YeICXYSBZm/view?usp=sharing" target="_blank">
                     <Button className="rounded-full bg-emerald-600 hover:bg-emerald-500 text-white border-0 px-6 py-6 h-auto text-base">
                       <FileDown className="mr-2 h-5 w-5" /> Download CV
                     </Button>
@@ -155,9 +155,12 @@ export default function Home() {
                   <div className="text-sm text-zinc-400">muatmuat • On-site</div>
                 </div>
                 <ul className="list-disc pl-4 text-zinc-400 space-y-2 text-sm mt-3 marker:text-zinc-600">
-                  <li>Resolved bugs and improved existing features across the application.</li>
-                  <li>Designed and implemented new transaction-related features.</li>
-                  <li>Implemented GetX as the state management solution.</li>
+                  <li>Optimized app performance by identifying and resolving critical bugs, leading to a significant reduction in production crash rates.</li>
+                  <li>Designed and implemented high-impact transaction-related features, streamlining the user journey and improving overall transaction efficiency.</li>
+                  <li>Partnered with UI/UX, BA, and QC teams to deliver high-fidelity designs and seamless product releases.</li>
+                  <li>Used GetX for state management to decouple business logic from the UI, resulting in cleaner code maintainability and faster feature deployment.</li>
+                  <li>Created a modular internal library to streamline feature development and ensure design consistency.</li>
+                  <li>Researched and integrated AI-powered development tools to automate boilerplate code generation and repetitive tasks, successfully boosting sprint velocity and developer productivity.</li>
                 </ul>
               </div>
 
@@ -166,7 +169,7 @@ export default function Home() {
                 <div className="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-zinc-800 border-2 border-zinc-900 group-hover:bg-blue-500 group-hover:shadow-[0_0_10px_rgba(59,130,246,0.5)] transition-all"></div>
                 <div className="flex flex-col mb-1">
                   <span className="text-xs font-mono text-zinc-500 mb-1">Nov 2024 - Feb 2025</span>
-                  <h3 className="font-bold text-lg text-white">Frontend Engineer</h3>
+                  <h3 className="font-bold text-lg text-white">Frontend Developer</h3>
                   <div className="text-sm text-zinc-400">Carillimu • Remote</div>
                 </div>
                  <ul className="list-disc pl-4 text-zinc-400 space-y-2 text-sm mt-3 marker:text-zinc-600">
@@ -181,13 +184,17 @@ export default function Home() {
                 <div className="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-zinc-800 border-2 border-zinc-900 group-hover:bg-indigo-500 group-hover:shadow-[0_0_10px_rgba(99,102,241,0.5)] transition-all"></div>
                 <div className="flex flex-col mb-1">
                   <span className="text-xs font-mono text-zinc-500 mb-1">May 2022 - Feb 2025</span>
-                  <h3 className="font-bold text-lg text-white">Mobile Engineer</h3>
+                  <h3 className="font-bold text-lg text-white">Mobile Apps Developer</h3>
                   <div className="text-sm text-zinc-400">Carillimu • Remote</div>
                 </div>
                  <ul className="list-disc pl-4 text-zinc-400 space-y-2 text-sm mt-3 marker:text-zinc-600">
-                  <li>Launched Carillimu App on both App Store and Play Store.</li>
-                  <li>Defined pixel-perfect UI implementation using Flutter.</li>
-                  <li>Utilized BLoC for efficient state management.</li>
+                  <li>Managed end-to-end development and on-time deployment to the App Store and Play Store.</li>
+                  <li>Applied SOLID principles to ensure a modular, maintainable, and highly scalable codebase.</li>
+                  <li>Developed high-precision UI components, including custom interactive video players.</li>
+                  <li>Utilized BloC to decouple business logic from the UI, ensuring the code is reusable and easy to test.</li>
+                  <li>Integrated RESTful APIs, push notifications, analytics, crash reporting, and local data storage.</li>
+                  <li>Developed advanced features requiring native integration using Kotlin (Android) and Swift (iOS).</li>
+                  <li>Collaborated effectively with Backend developers and UI/UX designers within an Agile environment.</li>
                 </ul>
               </div>
 
@@ -196,7 +203,7 @@ export default function Home() {
                 <div className="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-zinc-800 border-2 border-zinc-900 group-hover:bg-amber-500 group-hover:shadow-[0_0_10px_rgba(245,158,11,0.5)] transition-all"></div>
                 <div className="flex flex-col mb-1">
                   <span className="text-xs font-mono text-zinc-500 mb-1">Nov 2021 - Feb 2022</span>
-                  <h3 className="font-bold text-lg text-white">Mobile Engineer</h3>
+                  <h3 className="font-bold text-lg text-white">Mobile Apps Developer</h3>
                   <div className="text-sm text-zinc-400">PT. IDEJUALAN CREATIVE • Remote</div>
                 </div>
                  <ul className="list-disc pl-4 text-zinc-400 space-y-2 text-sm mt-3 marker:text-zinc-600">
