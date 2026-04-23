@@ -69,7 +69,14 @@ const skills = [
 
 const experiences = [
   {
-    period: "Mar 2025 - Now",
+    period: "Apr 2026 - Present",
+    role: "Mobile Apps Developer",
+    company: "Central Bank of Indonesia via PT Adidata",
+    mode: "On-site",
+    points: ["Developed BI Super Apps features and improvements."],
+  },
+  {
+    period: "Mar 2025 - Feb 2026",
     role: "Mobile Apps Developer",
     company: "muatmuat",
     mode: "On-site",
@@ -168,10 +175,9 @@ export default function Home() {
             <span className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/30 text-xs font-semibold">
               FA
             </span>
-            <p className="text-xs uppercase tracking-[0.28em] text-zinc-300">Digital Atelier</p>
+            <p className="text-xs uppercase tracking-[0.28em] text-zinc-300">Febry Ardiansyah's Portfolio</p>
           </div>
           <div className="flex items-center gap-3 text-[11px] uppercase tracking-[0.2em] text-zinc-400">
-            <span>Edition 2026</span>
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
             <span>Open to work</span>
           </div>
@@ -291,14 +297,24 @@ export default function Home() {
                 {experiences.map((item, index) => (
                   <article
                     key={`${item.company}-${item.period}`}
-                    className="rounded-2xl border border-white/15 bg-white/[0.03] p-4 transition-all duration-300 hover:border-white/30 hover:bg-white/[0.05] md:p-5"
+                    className={`rounded-2xl border p-4 transition-all duration-300 md:p-5 ${
+                      item.period.toLowerCase().includes("present")
+                        ? "border-amber-300/60 bg-amber-200/[0.08]"
+                        : "border-white/15 bg-white/[0.03] hover:border-white/30 hover:bg-white/[0.05]"
+                    }`}
                   >
                     <div className="mb-3 flex flex-wrap items-center gap-2 text-[11px] uppercase tracking-[0.17em] text-zinc-400">
                       <span>{item.period}</span>
                       <span className="h-1 w-1 rounded-full bg-zinc-500" />
                       <span>{item.mode}</span>
-                      <span className="h-1 w-1 rounded-full bg-zinc-500" />
-                      <span>Entry {index + 1}</span>
+                      {item.period.toLowerCase().includes("present") && (
+                        <>
+                          <span className="h-1 w-1 rounded-full bg-amber-300/80" />
+                          <span className="rounded-full border border-amber-200/50 bg-amber-200/20 px-2 py-0.5 text-[10px] font-semibold tracking-[0.16em] text-amber-100">
+                            Current
+                          </span>
+                        </>
+                      )}
                     </div>
                     <h4 className="text-lg font-semibold text-zinc-100">{item.role}</h4>
                     <p className="mb-3 text-sm font-medium text-zinc-300">{item.company}</p>
