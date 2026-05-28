@@ -1,17 +1,26 @@
 import type React from "react"
 import "./globals.css"
 import type { Metadata } from "next"
-import { Inter, JetBrains_Mono } from "next/font/google"
+import { Fraunces, IBM_Plex_Sans, JetBrains_Mono } from "next/font/google"
 import StravaFAB from "@/components/strava-fab"
 
-const inter = Inter({
+const displayFont = Fraunces({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-display",
+  display: "swap",
 })
 
-const jetbrainsMono = JetBrains_Mono({
+const bodyFont = IBM_Plex_Sans({
+  subsets: ["latin"],
+  variable: "--font-body",
+  weight: ["300", "400", "500", "600"],
+  display: "swap",
+})
+
+const monoFont = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
+  display: "swap",
 })
 
 export const metadata: Metadata = {
@@ -28,7 +37,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${jetbrainsMono.variable} font-sans`}>
+      <body className={`${displayFont.variable} ${bodyFont.variable} ${monoFont.variable}`}>
         {children}
         <StravaFAB />
       </body>
