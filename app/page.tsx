@@ -104,7 +104,53 @@ const experiences = [
   },
 ]
 
-export default function Home() {
+const GITHUB_USERNAME = "febryardiansyah"
+const GITHUB_REPO_LIMIT = 4
+
+type GitHubRepo = {
+  id: number
+  name: string
+  html_url: string
+  description: string | null
+  stargazers_count: number
+  forks_count: number
+  language: string | null
+  fork: boolean
+}
+
+async function getTopRepos() {
+  const token = process.env.GITHUB_TOKEN
+
+  if (!token) {
+    return [] as GitHubRepo[]
+  }
+
+  const response = await fetch(
+    `https://api.github.com/users/${GITHUB_USERNAME}/repos?per_page=100&sort=updated`,
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        Accept: "application/vnd.github+json",
+      },
+      next: { revalidate: 3600 },
+    }
+  )
+
+  if (!response.ok) {
+    return [] as GitHubRepo[]
+  }
+
+  const repos = (await response.json()) as GitHubRepo[]
+
+  return repos
+    .filter((repo) => !repo.fork)
+    .sort((a, b) => b.stargazers_count - a.stargazers_count)
+    .slice(0, GITHUB_REPO_LIMIT)
+}
+
+export default async function Home() {
+  const topRepos = await getTopRepos()
+
   return (
     <main id="top" className="page">
       <header className="nav-edge">
@@ -113,7 +159,7 @@ export default function Home() {
         </a>
         <Link
           className="cta-outline"
-          href="https://drive.google.com/file/d/1fg7eGgiI3cgq44DECppLB7YeICXYSBZm/view?usp=sharing"
+          href="https://drive.google.com/file/d/1CC8hQ_k18P-dIc7tBLFDbbB0wguUo4jU/view?usp=sharing"
           target="_blank"
         >
           Download CV →
@@ -190,9 +236,50 @@ export default function Home() {
         </section>
 
         <section
-          id="experience"
+          id="projects"
           className="section reveal"
           style={{ "--i": 3 } as React.CSSProperties}
+        >
+          <header className="head-hang">
+            <h2>Top projects</h2>
+          </header>
+          <div className="section-body">
+            <p className="section-lede">Most-starred work pulled from GitHub.</p>
+            {topRepos.length > 0 ? (
+              <div className="projects-grid">
+                {topRepos.map((repo) => (
+                  <article key={repo.id} className="project-card">
+                    <div className="project-head">
+                      <Link
+                        className="project-title"
+                        href={repo.html_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {repo.name}
+                      </Link>
+                      <div className="project-meta">
+                        <span>Stars {repo.stargazers_count}</span>
+                        <span>Forks {repo.forks_count}</span>
+                        {repo.language && <span>{repo.language}</span>}
+                      </div>
+                    </div>
+                    <p className={repo.description ? "project-desc" : "project-desc project-desc-muted"}>
+                      {repo.description ?? "No description yet."}
+                    </p>
+                  </article>
+                ))}
+              </div>
+            ) : (
+              <p className="section-lede">Projects are unavailable right now.</p>
+            )}
+          </div>
+        </section>
+
+        <section
+          id="experience"
+          className="section reveal"
+          style={{ "--i": 4 } as React.CSSProperties}
         >
           <header className="head-hang">
             <h2>Experience</h2>
@@ -234,7 +321,7 @@ export default function Home() {
         <section
           id="connect"
           className="section reveal"
-          style={{ "--i": 4 } as React.CSSProperties}
+          style={{ "--i": 5 } as React.CSSProperties}
         >
           <header className="head-hang">
             <h2>Connect</h2>
@@ -253,7 +340,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="contact" className="section reveal" style={{ "--i": 5 } as React.CSSProperties}>
+        <section id="contact" className="section reveal" style={{ "--i": 6 } as React.CSSProperties}>
           <header className="head-hang">
             <h2>Contact</h2>
           </header>

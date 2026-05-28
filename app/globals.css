@@ -374,6 +374,60 @@
   color: var(--color-muted);
 }
 
+.projects-grid {
+  display: grid;
+  gap: var(--space-md);
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.project-card {
+  border: var(--rule-hair) solid var(--color-rule);
+  background: var(--color-paper-2);
+  padding: var(--space-md);
+  display: grid;
+  gap: var(--space-sm);
+}
+
+.project-head {
+  display: grid;
+  gap: var(--space-xs);
+}
+
+.project-title {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-ink);
+  width: fit-content;
+  padding-bottom: 0.1rem;
+}
+
+.project-title:hover,
+.project-title:focus-visible {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.project-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-muted);
+}
+
+.project-desc {
+  margin: 0;
+}
+
+.project-desc-muted {
+  color: var(--color-muted);
+}
+
 .connect-list {
   list-style: none;
   padding: 0;
