@@ -2,9 +2,9 @@ import type React from "react"
 import Image from "next/image"
 import Link from "next/link"
 import SectionNav from "@/components/section-nav"
+import MadeProjectsSection from "@/components/made-projects-section"
 import { experiences } from "./data/experiences"
 import { getTopRepos } from "./data/github"
-import { madeProjects } from "./data/made-projects"
 import { skills } from "./data/skills"
 import { socials } from "./data/socials"
 
@@ -28,7 +28,7 @@ export default async function Home() {
       </header>
 
       <section className="hero-marquee">
-        <h1 className="display-xxl">Mobile apps and frontend, built for reliability.</h1>
+        <h1 className="display-xxl">Software engineer who builds mobile applications.</h1>
       </section>
 
       <hr className="rule-thick" aria-hidden="true" />
@@ -37,12 +37,12 @@ export default async function Home() {
         <div className="intro-grid reveal" style={{ "--i": 0 } as React.CSSProperties}>
           <div className="lede-block">
             <p className="lede">
-              Mobile apps and frontend engineer building resilient, well-paced interfaces for
-              mobile products and web platforms.
+              Software engineer focused on mobile and frontend development. I write clean,
+              maintainable code across Flutter, Next.js, and Node.js.
             </p>
             <p className="lede lede-muted">
-              I work across Flutter, React, and Next.js, keeping delivery tight and interfaces
-              accessible.
+              From architecture to deployment, I build products that are reliable,
+              accessible, and built to last.
             </p>
             <div className="hero-links">
               <Link className="link" href="#contact">
@@ -106,26 +106,7 @@ export default async function Home() {
           </header>
           <div className="section-body">
             <p className="section-lede">A few products I have built recently.</p>
-            <div className="made-grid">
-              {madeProjects.map((project) => (
-                <article key={project.name} className="made-card">
-                  <figure className="made-media">
-                    <Image src={project.image} alt={project.imageAlt} width={1200} height={720} />
-                  </figure>
-                  <Link className="made-title" href={project.href} target="_blank" rel="noopener noreferrer">
-                    {project.name}
-                  </Link>
-                  <p className="made-desc">{project.description}</p>
-                  <ul className="made-stack" role="list">
-                    {project.stack.map((tech) => (
-                      <li key={tech} className="made-tag">
-                        {tech}
-                      </li>
-                    ))}
-                  </ul>
-                </article>
-              ))}
-            </div>
+            <MadeProjectsSection />
           </div>
         </section>
 

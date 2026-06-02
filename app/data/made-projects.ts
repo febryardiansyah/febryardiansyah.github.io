@@ -29,6 +29,16 @@ const madeProjects = [
       "https://images.unsplash.com/photo-1516542076529-1ea3854896f2?q=80&w=1600&auto=format&fit=crop",
     imageAlt: "Clinician using a tablet in a hospital",
   },
+  {
+    name: "StockVue",
+    description:
+      "Real-time portfolio tracker with interactive charts, price alerts, and dividend forecasting across multiple exchanges.",
+    stack: ["Flutter", "BLoC", "WebSocket", "Chart.js"],
+    href: "https://example.com/stockvue",
+    image:
+      "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=1600&auto=format&fit=crop",
+    imageAlt: "Stock market dashboard on a mobile device",
+  },
 ]
 
 export { madeProjects }
