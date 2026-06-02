@@ -1,6 +1,7 @@
 import type React from "react"
-import Link from "next/link"
 import Image from "next/image"
+import Link from "next/link"
+import SectionNav from "@/components/section-nav"
 
 const socials = [
   {
@@ -104,6 +105,74 @@ const experiences = [
   },
 ]
 
+const madeProjects = [
+  {
+    name: "PulsePay Wallet",
+    description:
+      "A mobile wallet for daily payments with instant QR checkout, scheduled transfers, and offline-safe receipts.",
+    stack: ["Flutter", "Riverpod", "Firebase", "REST API"],
+    href: "https://example.com/pulsepay",
+    image:
+      "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?q=80&w=1600&auto=format&fit=crop",
+    imageAlt: "Mobile payment app screens",
+  },
+  {
+    name: "Atlas Logistics",
+    description:
+      "Operations dashboard for fleet visibility with real-time routes, ETA alerts, and incident tracking.",
+    stack: ["Next.js", "TypeScript", "TailwindCSS", "Map SDK"],
+    href: "https://example.com/atlas",
+    image:
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1600&auto=format&fit=crop",
+    imageAlt: "Analytics dashboard with charts",
+  },
+  {
+    name: "ClinicFlow",
+    description:
+      "Patient intake and appointment flow that reduces wait time with automated reminders and digital forms.",
+    stack: ["React", "SASS", "Node.js", "PostgreSQL"],
+    href: "https://example.com/clinicflow",
+    image:
+      "https://images.unsplash.com/photo-1516542076529-1ea3854896f2?q=80&w=1600&auto=format&fit=crop",
+    imageAlt: "Clinician using a tablet in a hospital",
+  },
+]
+
+// Deterministic dummy contributions for a 52-week heatmap (7 days per week)
+const contributionWeeks = Array.from({ length: 52 }, (_, w) =>
+  Array.from({ length: 7 }, (_, d) => ((w * 7 + d) * 13) % 5)
+)
+
+const months = [
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+]
+
+function getContributionColor(n: number) {
+  switch (n) {
+    case 0:
+      return "bg-zinc-800"
+    case 1:
+      return "bg-emerald-900/40"
+    case 2:
+      return "bg-emerald-800/60"
+    case 3:
+      return "bg-emerald-700/80"
+    default:
+      return "bg-emerald-500"
+  }
+}
+
 const GITHUB_USERNAME = "febryardiansyah"
 const GITHUB_REPO_LIMIT = 4
 
@@ -153,6 +222,7 @@ export default async function Home() {
 
   return (
     <main id="top" className="page">
+      <SectionNav />
       <header className="nav-edge">
         <a className="wordmark" href="#top">
           Febry Ardiansyah
@@ -210,8 +280,8 @@ export default async function Home() {
           </header>
           <div className="section-body">
             <p>
-              Exploring AI integration in mobile apps and advanced Flutter animations while staying
-              grounded in performance and reliability.
+              Focused on Flutter delivery, clean architecture, and AI-driven features, with
+              hands-on builds across crypto and blockchain experiences.
             </p>
           </div>
         </section>
@@ -236,12 +306,45 @@ export default async function Home() {
         </section>
 
         <section
-          id="projects"
+          id="made-projects"
           className="section reveal"
           style={{ "--i": 3 } as React.CSSProperties}
         >
           <header className="head-hang">
-            <h2>Top projects</h2>
+            <h2>Selected projects</h2>
+          </header>
+          <div className="section-body">
+            <p className="section-lede">A few products I have built recently.</p>
+            <div className="made-grid">
+              {madeProjects.map((project) => (
+                <article key={project.name} className="made-card">
+                  <figure className="made-media">
+                    <Image src={project.image} alt={project.imageAlt} width={1200} height={720} />
+                  </figure>
+                  <Link className="made-title" href={project.href} target="_blank" rel="noopener noreferrer">
+                    {project.name}
+                  </Link>
+                  <p className="made-desc">{project.description}</p>
+                  <ul className="made-stack" role="list">
+                    {project.stack.map((tech) => (
+                      <li key={tech} className="made-tag">
+                        {tech}
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section
+          id="projects"
+          className="section reveal"
+          style={{ "--i": 4 } as React.CSSProperties}
+        >
+          <header className="head-hang">
+            <h2>Top Open Source projects</h2>
           </header>
           <div className="section-body">
             <p className="section-lede">Most-starred work pulled from GitHub.</p>
@@ -279,7 +382,7 @@ export default async function Home() {
         <section
           id="experience"
           className="section reveal"
-          style={{ "--i": 4 } as React.CSSProperties}
+          style={{ "--i": 5 } as React.CSSProperties}
         >
           <header className="head-hang">
             <h2>Experience</h2>
@@ -321,7 +424,7 @@ export default async function Home() {
         <section
           id="connect"
           className="section reveal"
-          style={{ "--i": 5 } as React.CSSProperties}
+          style={{ "--i": 6 } as React.CSSProperties}
         >
           <header className="head-hang">
             <h2>Connect</h2>
@@ -340,7 +443,7 @@ export default async function Home() {
           </div>
         </section>
 
-        <section id="contact" className="section reveal" style={{ "--i": 6 } as React.CSSProperties}>
+        <section id="contact" className="section reveal" style={{ "--i": 7 } as React.CSSProperties}>
           <header className="head-hang">
             <h2>Contact</h2>
           </header>
