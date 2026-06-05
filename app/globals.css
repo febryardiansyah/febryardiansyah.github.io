@@ -284,8 +284,8 @@
 
 .below-fold {
   display: grid;
-  gap: var(--space-3xl);
-  padding: var(--space-2xl) var(--page-gutter) 0;
+  gap: var(--space-2xl);
+  padding: var(--space-xl) var(--page-gutter) 0;
 }
 
 .intro-grid {
@@ -356,7 +356,7 @@
 }
 
 .head-hang {
-  padding-block: var(--space-2xl) var(--space-md);
+  padding-block: var(--space-xl) var(--space-sm);
 }
 
 .head-hang h2 {

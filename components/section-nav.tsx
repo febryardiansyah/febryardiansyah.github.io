@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react"
 import type { LucideIcon } from "lucide-react"
-import { Briefcase, Github, Home, Layers, Mail, Share2, Sparkles, Wrench } from "lucide-react"
+import { Briefcase, Github, Home, Layers, Mail, Share2, Wrench } from "lucide-react"
 
 type SectionItem = {
   id: string
@@ -12,11 +12,10 @@ type SectionItem = {
 
 const sections: SectionItem[] = [
   { id: "top", label: "Welcome", icon: Home },
-  { id: "focus", label: "Focus", icon: Sparkles },
   { id: "skills", label: "Skills", icon: Wrench },
+  { id: "experience", label: "Experience", icon: Briefcase },
   { id: "made-projects", label: "Projects", icon: Layers },
   { id: "projects", label: "Open sources", icon: Github },
-  { id: "experience", label: "Experience", icon: Briefcase },
   { id: "connect", label: "Connect", icon: Share2 },
   { id: "contact", label: "Contact", icon: Mail },
 ]

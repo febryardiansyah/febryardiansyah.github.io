@@ -65,19 +65,7 @@ export default async function Home() {
           </figure>
         </div>
 
-        <section id="focus" className="section reveal" style={{ "--i": 1 } as React.CSSProperties}>
-          <header className="head-hang">
-            <h2>Focus</h2>
-          </header>
-          <div className="section-body">
-            <p>
-              Focused on Flutter delivery, clean architecture, and AI-driven features, with
-              hands-on builds across crypto and blockchain experiences.
-            </p>
-          </div>
-        </section>
-
-        <section id="skills" className="section reveal" style={{ "--i": 2 } as React.CSSProperties}>
+        <section id="skills" className="section reveal" style={{ "--i": 1 } as React.CSSProperties}>
           <header className="head-hang">
             <h2>Skills</h2>
           </header>
@@ -93,6 +81,48 @@ export default async function Home() {
                 </li>
               ))}
             </ul>
+          </div>
+        </section>
+
+        <section
+          id="experience"
+          className="section reveal"
+          style={{ "--i": 2 } as React.CSSProperties}
+        >
+          <header className="head-hang">
+            <h2>Experience</h2>
+          </header>
+          <div className="section-body">
+            <p className="section-lede">
+              Shipping product work with teams across finance, commerce, and consumer platforms.
+            </p>
+            <div className="experience-list">
+              {experiences.map((item) => (
+                <article key={`${item.company}-${item.period}`} className="experience-item">
+                  <div className="experience-meta">
+                    <span className="experience-period">{item.period}</span>
+                    <span className="experience-sep">•</span>
+                    <span>{item.mode}</span>
+                  </div>
+                  <h3 className="experience-role">{item.role}</h3>
+                  <p className="experience-company">{item.company}</p>
+                  <ul className="experience-points" role="list">
+                    {item.points.map((point) => (
+                      <li key={point}>{point}</li>
+                    ))}
+                  </ul>
+                  {item.skillSet && (
+                    <ul className="experience-skills" role="list">
+                      {item.skillSet.map((skill) => (
+                        <li key={skill} className="experience-skill">
+                          {skill}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </article>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -152,51 +182,9 @@ export default async function Home() {
         </section>
 
         <section
-          id="experience"
-          className="section reveal"
-          style={{ "--i": 5 } as React.CSSProperties}
-        >
-          <header className="head-hang">
-            <h2>Experience</h2>
-          </header>
-          <div className="section-body">
-            <p className="section-lede">
-              Shipping product work with teams across finance, commerce, and consumer platforms.
-            </p>
-            <div className="experience-list">
-              {experiences.map((item) => (
-                <article key={`${item.company}-${item.period}`} className="experience-item">
-                  <div className="experience-meta">
-                    <span className="experience-period">{item.period}</span>
-                    <span className="experience-sep">•</span>
-                    <span>{item.mode}</span>
-                  </div>
-                  <h3 className="experience-role">{item.role}</h3>
-                  <p className="experience-company">{item.company}</p>
-                  <ul className="experience-points" role="list">
-                    {item.points.map((point) => (
-                      <li key={point}>{point}</li>
-                    ))}
-                  </ul>
-                  {item.skillSet && (
-                    <ul className="experience-skills" role="list">
-                      {item.skillSet.map((skill) => (
-                        <li key={skill} className="experience-skill">
-                          {skill}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section
           id="connect"
           className="section reveal"
-          style={{ "--i": 6 } as React.CSSProperties}
+          style={{ "--i": 5 } as React.CSSProperties}
         >
           <header className="head-hang">
             <h2>Connect</h2>
@@ -215,7 +203,7 @@ export default async function Home() {
           </div>
         </section>
 
-        <section id="contact" className="section reveal" style={{ "--i": 7 } as React.CSSProperties}>
+        <section id="contact" className="section reveal" style={{ "--i": 6 } as React.CSSProperties}>
           <header className="head-hang">
             <h2>Contact</h2>
           </header>

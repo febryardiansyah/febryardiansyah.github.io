@@ -1,44 +1,64 @@
 const madeProjects = [
   {
-    name: "PulsePay Wallet",
+    name: "BI Superapp",
     description:
-      "A mobile wallet for daily payments with instant QR checkout, scheduled transfers, and offline-safe receipts.",
-    stack: ["Flutter", "Riverpod", "Firebase", "REST API"],
-    href: "https://example.com/pulsepay",
+      "Superapp portal unifying core functions at Bank Indonesia \u2014 Policy, Institutional, and HR clusters \u2014 for faster information access and more efficient internal policy management.",
+    stack: ["Flutter", "Riverpod", "Android", "iOS", "MVVM", "DexGuards", "IxGuards", "SOLID Principles"],
+    href: "https://apps.apple.com/id/app/digital-workplace-mobile/id1644633624",
     image:
-      "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?q=80&w=1600&auto=format&fit=crop",
-    imageAlt: "Mobile payment app screens",
+      "https://res.cloudinary.com/febryar/image/upload/v1780412472/portfolio%20showcase/BI_Superapp_1_wwigbc.png",
+    imageAlt: "BI Superapp",
   },
   {
-    name: "Atlas Logistics",
+    name: "Cariilmu App",
     description:
-      "Operations dashboard for fleet visibility with real-time routes, ETA alerts, and incident tracking.",
-    stack: ["Next.js", "TypeScript", "TailwindCSS", "Map SDK"],
-    href: "https://example.com/atlas",
+      "An EdTech platform for Prakerja training via video, webinar, and offline sessions.",
+    stack: ["Flutter", "BloC", "Android", "iOS", "MVVM", "SOLID Principles"],
+    href: "https://play.google.com/store/apps/details?id=com.ibj.cariilmu",
     image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1600&auto=format&fit=crop",
-    imageAlt: "Analytics dashboard with charts",
+      "https://res.cloudinary.com/febryar/image/upload/v1780494957/portfolio%20showcase/Gemini_Generated_Image_jaf0oyjaf0oyjaf0_1_h25mto.png",
+    imageAlt: "Cariilmu app",
   },
   {
-    name: "ClinicFlow",
+    name: "Muatparts PLUS",
     description:
-      "Patient intake and appointment flow that reduces wait time with automated reminders and digital forms.",
-    stack: ["React", "SASS", "Node.js", "PostgreSQL"],
-    href: "https://example.com/clinicflow",
+      "A comprehensive B2B marketplace platform specializing in high-quality truck spare parts and industrial components, designed to streamline procurement for logistics fleets.",
+    stack: ["Flutter", "GetX", "Android", "Claude AI", "MVVM"],
+    href: "https://play.google.com/store/apps/details?id=com.azlogistik.muatmuattransporter",
     image:
-      "https://images.unsplash.com/photo-1516542076529-1ea3854896f2?q=80&w=1600&auto=format&fit=crop",
-    imageAlt: "Clinician using a tablet in a hospital",
+      "https://res.cloudinary.com/febryar/image/upload/v1780490925/portfolio%20showcase/Gemini_Generated_Image_kvwv7akvwv7akvwv_1_cwmgfn.png",
+    imageAlt: "Muatparts PLUS",
   },
   {
-    name: "StockVue",
+    name: "monefi",
     description:
-      "Real-time portfolio tracker with interactive charts, price alerts, and dividend forecasting across multiple exchanges.",
-    stack: ["Flutter", "BLoC", "WebSocket", "Chart.js"],
-    href: "https://example.com/stockvue",
+      "A personal finance platform that automates daily expense tracking by allowing users to record transactions via Telegram chat, voice notes, and receipt scanning, with an interactive web dashboard",
+    stack: ["NextJs", "TailwindCSS", "TypeScript", "Supabase", "Midtrans"],
+    href: "https://monefi.id/",
     image:
-      "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=1600&auto=format&fit=crop",
-    imageAlt: "Stock market dashboard on a mobile device",
+      "https://www.monefi.id/dashboard.png",
+    imageAlt: "monefi",
   },
-]
+  {
+    name: "Petgram",
+    description:
+      "An open source, Instagram style social app for pet lovers, featuring AI powered image detection using TensorFlow",
+    stack: ["Flutter", "BloC", "NodeJs", "ExpressJs", "TensorFlow", "MongoDB", ],
+    href: "https://github.com/febryardiansyah/petgram-mobile",
+    image:
+      "https://res.cloudinary.com/febryar/image/upload/v1780665209/portfolio%20showcase/Gemini_Generated_Image_7e2cre7e2cre7e2c_1_ttbgug.png",
+    imageAlt: "Petgram",
+  },
+  {
+    name: "Mangamint",
+    description:
+      "MangaMint is manga reader application that provides manga and comic bahasa indonesia",
+    stack: ["Flutter", "BloC", "NodeJs", "ExpressJs"],
+    href: "https://github.com/febryardiansyah/mangamint",
+    image:
+      "https://res.cloudinary.com/febryar/image/upload/v1780665825/portfolio%20showcase/Gemini_Generated_Image_6mi9ad6mi9ad6mi9_1_qhzyao.png",
+    imageAlt: "Mangamint",
+  },
+];
 
-export { madeProjects }
+export { madeProjects };
