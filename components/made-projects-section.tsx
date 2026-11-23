@@ -1,76 +1,162 @@
 "use client"
 
-import Image from "next/image"
-import Link from "next/link"
-import { madeProjects } from "@/app/data/made-projects"
-import {
-  Dialog,
-  DialogTrigger,
-  DialogContent,
-  DialogTitle,
-  DialogDescription,
-} from "@/components/ui/dialog"
+import { useState } from "react"
+import { BookOpen, ChevronDown, ChevronUp, ExternalLink, Layers, PawPrint, Play, Plus } from "lucide-react"
+import { madeProjects, type MadeProject } from "@/app/data/made-projects"
+import { Dialog, DialogContent, DialogDescription, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 
-const VISIBLE_COUNT = 3
-
-export default function MadeProjectsSection() {
+function ProjectCover({ project }: { project: MadeProject }) {
   return (
-    <>
-      <div className="made-grid">
-        {madeProjects.slice(0, VISIBLE_COUNT).map((project) => (
-          <article key={project.name} className="made-card">
-            <figure className="made-media">
-              <Image src={project.image} alt={project.imageAlt} width={1200} height={720} />
-            </figure>
-            <Link className="made-title" href={project.href} target="_blank" rel="noopener noreferrer">
-              {project.name}
-            </Link>
-            <p className="made-desc">{project.description}</p>
-            <ul className="made-stack" role="list">
-              {project.stack.map((tech) => (
-                <li key={tech} className="made-tag">
-                  {tech}
-                </li>
+    <div className={`project-cover cover-${project.id}`} aria-hidden="true">
+      {project.id === "bi" && (
+        <>
+          <div className="workplace-brand">
+            <img src="/portfolio/bi-icon.webp" alt="" />
+          </div>
+          <div className="store-device">
+            <img loading="lazy" src="/portfolio/bi.webp" alt="" />
+          </div>
+        </>
+      )}
+      {project.id === "monefi" && (
+        <>
+          <strong className="finance-brand">
+            monefi<span>•</span>
+          </strong>
+          <div className="dashboard-window">
+            <div className="browser-dots">
+              <i />
+              <i />
+              <i />
+            </div>
+            <img loading="lazy" src="/portfolio/monefi.webp" alt="" />
+          </div>
+        </>
+      )}
+      {project.id === "cariilmu" && (
+        <>
+          <b className="learning-brand">
+            cariilmu<span>.</span>
+          </b>
+          <div className="book-stack">
+            <i />
+            <i />
+            <i>
+              <BookOpen />
+            </i>
+            <b>
+              <Play size={27} fill="currentColor" />
+            </b>
+          </div>
+        </>
+      )}
+      {project.id === "muatparts" && (
+        <>
+          <strong className="parts-brand">
+            muatparts<span>PLUS</span>
+          </strong>
+          <div className="store-device">
+            <img loading="lazy" src="/portfolio/muatparts.webp" alt="" />
+          </div>
+        </>
+      )}
+      {project.id === "petgram" && (
+        <>
+          <strong className="pet-brand">Petgram</strong>
+          <div className="app-tile">
+            <PawPrint />
+          </div>
+        </>
+      )}
+      {project.id === "mangamint" && (
+        <>
+          <strong className="manga-brand">MangaMint</strong>
+          <div className="app-tile">
+            <BookOpen />
+          </div>
+        </>
+      )}
+    </div>
+  )
+}
+
+function ProjectCard({ project }: { project: MadeProject }) {
+  const [failed, setFailed] = useState(false)
+  return (
+    <article className="project-card">
+      <Dialog>
+        <DialogTrigger asChild>
+          <button className="project-trigger" aria-label={`Explore ${project.name}`}>
+            <ProjectCover project={project} />
+            <span className="card-info">
+              <span className="project-category">{project.category}</span>
+              <span className="project-name">
+                {project.name}
+                <Plus size={19} />
+              </span>
+              <span className="project-summary">{project.summary}</span>
+            </span>
+          </button>
+        </DialogTrigger>
+        <DialogContent className="project-dialog">
+          <div className="detail-image">
+            <ProjectCover project={project} />
+            {!failed && (
+              <img
+                src={project.image}
+                alt={`${project.name} project preview`}
+                onError={() => setFailed(true)}
+              />
+            )}
+          </div>
+          <div className="detail-copy">
+            <span className="project-category">{project.category}</span>
+            <DialogTitle>{project.name}</DialogTitle>
+            <DialogDescription>{project.description}</DialogDescription>
+            <ul className="tags">
+              {project.stack.map((t) => (
+                <li key={t}>{t}</li>
               ))}
             </ul>
-          </article>
-        ))}
+            <a className="button primary" target="_blank" rel="noreferrer" href={project.href}>
+              {project.linkLabel}
+              <ExternalLink size={15} />
+            </a>
+          </div>
+        </DialogContent>
+      </Dialog>
+    </article>
+  )
+}
 
-        <Dialog>
-          <DialogTrigger asChild>
-            <button className="made-card made-see-more-card">
-              <span className="made-see-more-icon">+</span>
-              <span className="made-see-more-label">See more</span>
-            </button>
-          </DialogTrigger>
-          <DialogContent className="max-w-3xl max-h-[85vh] overflow-y-auto">
-            <DialogTitle className="sr-only">All selected projects</DialogTitle>
-            <DialogDescription className="sr-only">
-              A complete list of selected projects.
-            </DialogDescription>
-            <div className="made-grid-dialog">
-              {madeProjects.map((project) => (
-                <article key={project.name} className="made-card">
-                  <figure className="made-media">
-                    <Image src={project.image} alt={project.imageAlt} width={1200} height={720} />
-                  </figure>
-                  <Link className="made-title" href={project.href} target="_blank" rel="noopener noreferrer">
-                    {project.name}
-                  </Link>
-                  <p className="made-desc">{project.description}</p>
-                  <ul className="made-stack" role="list">
-                    {project.stack.map((tech) => (
-                      <li key={tech} className="made-tag">
-                        {tech}
-                      </li>
-                    ))}
-                  </ul>
-                </article>
-              ))}
-            </div>
-          </DialogContent>
-        </Dialog>
+export default function MadeProjectsSection() {
+  const [all, setAll] = useState(false)
+  return (
+    <section id="made-projects" className="container content-section work-section">
+      <div className="section-heading">
+        <div>
+          <h2>
+            Selected <em>work</em><span>.</span>
+          </h2>
+          <p>Products I’ve built for mobile and web.</p>
+        </div>
+        <button
+          type="button"
+          className="text-action"
+          aria-expanded={all}
+          aria-controls="project-grid"
+          onClick={() => setAll(!all)}
+        >
+          <Layers size={15} />
+          {all ? "Show featured" : `All ${madeProjects.length} projects`}
+          {all ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
+        </button>
       </div>
-    </>
+      <div className="project-grid" id="project-grid">
+        {(all ? madeProjects : madeProjects.slice(0, 3)).map((p) => (
+          <ProjectCard key={p.id} project={p} />
+        ))}
+      </div>
+    </section>
   )
 }

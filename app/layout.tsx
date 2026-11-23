@@ -1,47 +1,18 @@
-import type React from "react"
-import "./globals.css"
 import type { Metadata } from "next"
-import { Fraunces, IBM_Plex_Sans, JetBrains_Mono } from "next/font/google"
-import StravaFAB from "@/components/strava-fab"
-
-const displayFont = Fraunces({
-  subsets: ["latin"],
-  variable: "--font-display",
-  display: "swap",
-})
-
-const bodyFont = IBM_Plex_Sans({
-  subsets: ["latin"],
-  variable: "--font-body",
-  weight: ["300", "400", "500", "600"],
-  display: "swap",
-})
-
-const monoFont = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-mono",
-  display: "swap",
-})
+import { GeistSans } from "geist/font/sans"
+import { GeistMono } from "geist/font/mono"
+import "./globals.css"
 
 export const metadata: Metadata = {
-  title: "Febry Ardiansyah | Mobile App and Frontend Engineer",
+  title: "Febry Ardiansyah | Mobile & Frontend Engineer",
   description:
-    "Personal website of Febry Ardiansyah, a Mobile App and Front End Engineer specializing in Flutter, Firebase, and modern web technologies.",
-    generator: 'v0.dev'
+    "Mobile apps, frontend engineering, and selected work by Febry Ardiansyah. Explore projects built with Flutter, React, and Next.js.",
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body className={`${displayFont.variable} ${bodyFont.variable} ${monoFont.variable}`}>
-        {children}
-        <StravaFAB />
-      </body>
+    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
+      <body>{children}</body>
     </html>
   )
 }
-

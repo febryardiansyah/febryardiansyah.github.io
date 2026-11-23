@@ -1,64 +1,81 @@
 const madeProjects = [
   {
+    id: "bi",
     name: "BI Superapp",
+    category: "Enterprise mobile",
+    summary: "A digital workplace for Bank Indonesia.",
     description:
-      "Superapp portal unifying core functions at Bank Indonesia \u2014 Policy, Institutional, and HR clusters \u2014 for faster information access and more efficient internal policy management.",
-    stack: ["Flutter", "Riverpod", "Android", "iOS", "MVVM", "DexGuards", "IxGuards", "SOLID Principles"],
+      "A mobile portal bringing Bank Indonesia’s policy, institutional, and HR services together so employees can find information and manage internal policies in one place.",
+    stack: ["Flutter", "Riverpod", "Android", "iOS", "MVVM", "DexGuard", "iXGuard", "SOLID"],
     href: "https://apps.apple.com/id/app/digital-workplace-mobile/id1644633624",
+    linkLabel: "View on the App Store",
     image:
       "https://res.cloudinary.com/febryar/image/upload/v1780412472/portfolio%20showcase/BI_Superapp_1_wwigbc.png",
-    imageAlt: "BI Superapp",
   },
   {
-    name: "Cariilmu App",
+    id: "monefi",
+    name: "monefi",
+    category: "Personal finance",
+    summary: "From a Telegram message to an expense dashboard.",
     description:
-      "An EdTech platform for Prakerja training via video, webinar, and offline sessions.",
-    stack: ["Flutter", "BloC", "Android", "iOS", "MVVM", "SOLID Principles"],
-    href: "https://play.google.com/store/apps/details?id=com.ibj.cariilmu",
+      "A personal finance platform that logs daily expenses from Telegram messages, voice notes, and receipt scans. An interactive web dashboard brings the transactions together.",
+    stack: ["Next.js", "TailwindCSS", "TypeScript", "Supabase", "Midtrans"],
+    href: "https://monefi.id/",
+    linkLabel: "Visit website",
+    image: "/portfolio/monefi.webp",
+  },
+  {
+    id: "cariilmu",
+    name: "Cariilmu App",
+    category: "Education",
+    summary: "Prakerja training across mobile and the classroom.",
+    description:
+      "A learning platform for Prakerja participants, with training delivered through video courses, live webinars, and in-person sessions.",
+    stack: ["Flutter", "BloC", "Android", "iOS", "MVVM", "SOLID"],
+    href: "https://id.linkedin.com/company/cariilmu-co-id",
+    linkLabel: "About Cariilmu",
     image:
       "https://res.cloudinary.com/febryar/image/upload/v1780494957/portfolio%20showcase/Gemini_Generated_Image_jaf0oyjaf0oyjaf0_1_h25mto.png",
-    imageAlt: "Cariilmu app",
   },
   {
+    id: "muatparts",
     name: "Muatparts PLUS",
+    category: "B2B commerce",
+    summary: "Truck parts procurement for logistics fleets.",
     description:
-      "A comprehensive B2B marketplace platform specializing in high-quality truck spare parts and industrial components, designed to streamline procurement for logistics fleets.",
+      "A B2B marketplace for truck spare parts and industrial components, built to simplify procurement for logistics fleets.",
     stack: ["Flutter", "GetX", "Android", "Claude AI", "MVVM"],
     href: "https://play.google.com/store/apps/details?id=com.azlogistik.muatmuattransporter",
+    linkLabel: "View on Google Play",
     image:
       "https://res.cloudinary.com/febryar/image/upload/v1780490925/portfolio%20showcase/Gemini_Generated_Image_kvwv7akvwv7akvwv_1_cwmgfn.png",
-    imageAlt: "Muatparts PLUS",
   },
   {
-    name: "monefi",
-    description:
-      "A personal finance platform that automates daily expense tracking by allowing users to record transactions via Telegram chat, voice notes, and receipt scanning, with an interactive web dashboard",
-    stack: ["NextJs", "TailwindCSS", "TypeScript", "Supabase", "Midtrans"],
-    href: "https://monefi.id/",
-    image:
-      "https://www.monefi.id/dashboard.png",
-    imageAlt: "monefi",
-  },
-  {
+    id: "petgram",
     name: "Petgram",
+    category: "Social mobile",
+    summary: "A social app for pet lovers with image recognition.",
     description:
-      "An open source, Instagram style social app for pet lovers, featuring AI powered image detection using TensorFlow",
-    stack: ["Flutter", "BloC", "NodeJs", "ExpressJs", "TensorFlow", "MongoDB", ],
+      "An open-source photo-sharing app for pet lovers. TensorFlow image recognition helps identify the pets in a post.",
+    stack: ["Flutter", "BloC", "Node.js", "Express.js", "TensorFlow", "MongoDB"],
     href: "https://github.com/febryardiansyah/petgram-mobile",
+    linkLabel: "View repository",
     image:
       "https://res.cloudinary.com/febryar/image/upload/v1780665209/portfolio%20showcase/Gemini_Generated_Image_7e2cre7e2cre7e2c_1_ttbgug.png",
-    imageAlt: "Petgram",
   },
   {
+    id: "mangamint",
     name: "Mangamint",
-    description:
-      "MangaMint is manga reader application that provides manga and comic bahasa indonesia",
-    stack: ["Flutter", "BloC", "NodeJs", "ExpressJs"],
-    href: "https://github.com/febryardiansyah/mangamint",
+    category: "Manga reader",
+    summary: "A Flutter manga reader in Bahasa Indonesia.",
+    description: "An open-source Android application for reading manga and comics in Bahasa Indonesia.",
+    stack: ["Flutter", "BloC", "Node.js", "Express.js"],
+    href: "https://github.com/febryardiansyah/manga_mint",
+    linkLabel: "View repository",
     image:
       "https://res.cloudinary.com/febryar/image/upload/v1780665825/portfolio%20showcase/Gemini_Generated_Image_6mi9ad6mi9ad6mi9_1_qhzyao.png",
-    imageAlt: "Mangamint",
   },
-];
+]
 
-export { madeProjects };
+export { madeProjects }
+export type MadeProject = (typeof madeProjects)[number]
