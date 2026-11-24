@@ -30,3 +30,5 @@ firebase-service.json
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+# local Strava OAuth token storage
+/.strava/

@@ -1,95 +1,85 @@
-'use client'
+"use client"
 
 import { useEffect, useRef, useState } from "react"
-import type { LucideIcon } from "lucide-react"
-import { Briefcase, Github, Home, Layers, Mail, Share2, Wrench } from "lucide-react"
+import { Menu, X, Mail } from "lucide-react"
 
-type SectionItem = {
-  id: string
-  label: string
-  icon: LucideIcon
-}
-
-const sections: SectionItem[] = [
-  { id: "top", label: "Welcome", icon: Home },
-  { id: "skills", label: "Skills", icon: Wrench },
-  { id: "experience", label: "Experience", icon: Briefcase },
-  { id: "made-projects", label: "Projects", icon: Layers },
-  { id: "projects", label: "Open sources", icon: Github },
-  { id: "connect", label: "Connect", icon: Share2 },
-  { id: "contact", label: "Contact", icon: Mail },
+const sections = [
+  { id: "made-projects", label: "Work" },
+  { id: "about", label: "About" },
+  { id: "experience", label: "Experience" },
 ]
 
 export default function SectionNav() {
-  const [activeId, setActiveId] = useState("top")
-  const activeIdRef = useRef("top")
-
+  const [open, setOpen] = useState(false)
+  const button = useRef<HTMLButtonElement>(null)
+  const header = useRef<HTMLElement>(null)
   useEffect(() => {
-    const targets = sections
-      .map((section) => document.getElementById(section.id))
-      .filter((element): element is HTMLElement => Boolean(element))
-
-    if (targets.length === 0) {
-      return
-    }
-
-    const getClosestSection = () => {
-      if (window.scrollY < 120) {
-        if (activeIdRef.current !== "top") {
-          activeIdRef.current = "top"
-          setActiveId("top")
-        }
-        return
-      }
-
-      const viewportCenter = window.innerHeight * 0.4
-      let closestId = activeIdRef.current
-      let closestDistance = Number.POSITIVE_INFINITY
-
-      targets.forEach((target) => {
-        const rect = target.getBoundingClientRect()
-        const distance = Math.abs(rect.top - viewportCenter)
-        if (distance < closestDistance) {
-          closestDistance = distance
-          closestId = target.id
-        }
-      })
-
-      if (closestId !== activeIdRef.current) {
-        activeIdRef.current = closestId
-        setActiveId(closestId)
+    if (!open) return
+    function escape(e: KeyboardEvent) {
+      if (e.key === "Escape") {
+        setOpen(false)
+        button.current?.focus()
       }
     }
-
-    const handleScroll = () => {
-      window.requestAnimationFrame(getClosestSection)
+    function outside(e: PointerEvent) {
+      if (!header.current?.contains(e.target as Node)) setOpen(false)
     }
-
-    handleScroll()
-    window.addEventListener("scroll", handleScroll, { passive: true })
-    window.addEventListener("resize", handleScroll)
-
+    document.addEventListener("keydown", escape)
+    document.addEventListener("pointerdown", outside)
     return () => {
-      window.removeEventListener("scroll", handleScroll)
-      window.removeEventListener("resize", handleScroll)
+      document.removeEventListener("keydown", escape)
+      document.removeEventListener("pointerdown", outside)
     }
-  }, [])
-
+  }, [open])
   return (
-    <nav className="section-nav" aria-label="Section navigation">
-      {sections.map((section) => (
+    <header className="site-header" ref={header}>
+      <div className="container nav-inner">
         <a
-          key={section.id}
-          href={`#${section.id}`}
-          data-active={activeId === section.id}
-          aria-current={activeId === section.id ? "true" : undefined}
+          href="#top"
+          aria-label="Febry Ardiansyah, home"
+          className="wordmark"
+          onClick={() => setOpen(false)}
         >
-          <span className="section-nav-icon" aria-hidden="true">
-            <section.icon />
+          <span className="brand-mark" aria-hidden="true">
+            <i />
+            <i />
+            <i />
           </span>
-          <span className="section-nav-label">{section.label}</span>
+          febryards<span className="wordmark-dot">.</span>
         </a>
-      ))}
-    </nav>
+        <nav className="desktop-nav" aria-label="Main navigation">
+          {sections.map((s) => (
+            <a key={s.id} href={`#${s.id}`}>
+              {s.label}
+            </a>
+          ))}
+        </nav>
+        <div className="nav-actions">
+          <a className="nav-contact" href="#contact" onClick={() => setOpen(false)}>
+            <Mail size={15} /> Get in touch
+          </a>
+          <button
+            ref={button}
+            className="menu-toggle"
+            type="button"
+            aria-label={open ? "Close navigation" : "Open navigation"}
+            aria-expanded={open}
+            aria-controls="mobile-nav"
+            onClick={() => setOpen(!open)}
+          >
+            {open ? <X /> : <Menu />}
+          </button>
+        </div>
+        {open && (
+          <nav id="mobile-nav" className="mobile-nav" aria-label="Mobile navigation">
+            {sections.map((s) => (
+              <a key={s.id} href={`#${s.id}`} onClick={() => setOpen(false)}>
+                {s.label}
+              </a>
+            ))}
+          </nav>
+        )}
+      </div>
+    </header>
   )
 }
