@@ -37,7 +37,9 @@ To use the Strava integration, you need to set up the following environment vari
 - `STRAVA_TOKEN_URL`: The Strava OAuth token URL (default: https://www.strava.com/oauth/token)
 - `STRAVA_CLIENT_ID`: Your Strava API client ID
 - `STRAVA_CLIENT_SECRET`: Your Strava API client secret
-- `STRAVA_REFRESH_TOKEN`: Your Strava API refresh token
+- `STRAVA_REFRESH_TOKEN`: The initial refresh token for the portfolio owner, authorized with `activity:read`.
+
+The server saves rotated tokens under `.strava/` on a single server with a persistent, writable working directory. For serverless or multi-instance deployments, configure Firestore with `FIREBASE_PROJECT_ID`, `FIREBASE_CLIENT_EMAIL`, and `FIREBASE_PRIVATE_KEY` so instances share the latest credentials.
 
 ### Development
 
