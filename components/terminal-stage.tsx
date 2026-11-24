@@ -66,11 +66,13 @@ export default function TerminalStage() {
       data-ready={ready}
       data-playing={ready && playback.playing}
     >
-      <div
+      <img
         className="model-poster"
-        role="img"
+        src={atDesk ? "/portfolio/field-terminal.webp" : "/portfolio/spring-studio.webp"}
+        width={1049}
+        height={665}
         aria-hidden={ready}
-        aria-label={
+        alt={
           atDesk
             ? "A cream and vermilion terminal beside a flowering cherry tree"
             : "A timber studio with glowing shoji screens, a tiled roof and an indigo noren beside a cherry tree"
