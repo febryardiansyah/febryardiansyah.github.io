@@ -1,87 +1,26 @@
 "use client"
 
 import { useState } from "react"
-import { BookOpen, ChevronDown, ChevronUp, ExternalLink, Layers, PawPrint, Play, Plus } from "lucide-react"
+import { ChevronDown, ChevronUp, ExternalLink, Layers, Plus } from "lucide-react"
 import { madeProjects, type MadeProject } from "@/app/data/made-projects"
 import { Dialog, DialogContent, DialogDescription, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 
-function ProjectCover({ project }: { project: MadeProject }) {
+function ProjectCover({ project, detail = false }: { project: MadeProject; detail?: boolean }) {
+  const [failed, setFailed] = useState(false)
+  const localImage = project.id === "monefi" ? "/portfolio/monefi.webp" : `/portfolio/${project.id}-showcase.webp`
   return (
-    <div className={`project-cover cover-${project.id}`} aria-hidden="true">
-      {project.id === "bi" && (
-        <>
-          <div className="workplace-brand">
-            <img src="/portfolio/bi-icon.webp" alt="" />
-          </div>
-          <div className="store-device">
-            <img loading="lazy" src="/portfolio/bi.webp" alt="" />
-          </div>
-        </>
-      )}
-      {project.id === "monefi" && (
-        <>
-          <strong className="finance-brand">
-            monefi<span>•</span>
-          </strong>
-          <div className="dashboard-window">
-            <div className="browser-dots">
-              <i />
-              <i />
-              <i />
-            </div>
-            <img loading="lazy" src="/portfolio/monefi.webp" alt="" />
-          </div>
-        </>
-      )}
-      {project.id === "cariilmu" && (
-        <>
-          <b className="learning-brand">
-            cariilmu<span>.</span>
-          </b>
-          <div className="book-stack">
-            <i />
-            <i />
-            <i>
-              <BookOpen />
-            </i>
-            <b>
-              <Play size={27} fill="currentColor" />
-            </b>
-          </div>
-        </>
-      )}
-      {project.id === "muatparts" && (
-        <>
-          <strong className="parts-brand">
-            muatparts<span>PLUS</span>
-          </strong>
-          <div className="store-device">
-            <img loading="lazy" src="/portfolio/muatparts.webp" alt="" />
-          </div>
-        </>
-      )}
-      {project.id === "petgram" && (
-        <>
-          <strong className="pet-brand">Petgram</strong>
-          <div className="app-tile">
-            <PawPrint />
-          </div>
-        </>
-      )}
-      {project.id === "mangamint" && (
-        <>
-          <strong className="manga-brand">MangaMint</strong>
-          <div className="app-tile">
-            <BookOpen />
-          </div>
-        </>
-      )}
-    </div>
+    <img
+      className={detail ? "project-photo detail-photo" : "project-photo"}
+      src={failed ? localImage : project.image}
+      alt={detail ? `${project.name} project preview` : ""}
+      loading={detail ? "eager" : "lazy"}
+      decoding="async"
+      onError={() => setFailed(true)}
+    />
   )
 }
 
 function ProjectCard({ project }: { project: MadeProject }) {
-  const [failed, setFailed] = useState(false)
   return (
     <article className="project-card">
       <Dialog>
@@ -99,16 +38,7 @@ function ProjectCard({ project }: { project: MadeProject }) {
           </button>
         </DialogTrigger>
         <DialogContent className="project-dialog">
-          <div className="detail-image">
-            <ProjectCover project={project} />
-            {!failed && (
-              <img
-                src={project.image}
-                alt={`${project.name} project preview`}
-                onError={() => setFailed(true)}
-              />
-            )}
-          </div>
+          <ProjectCover project={project} detail />
           <div className="detail-copy">
             <span className="project-category">{project.category}</span>
             <DialogTitle>{project.name}</DialogTitle>

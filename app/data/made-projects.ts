@@ -22,7 +22,7 @@ const madeProjects = [
     stack: ["Next.js", "TailwindCSS", "TypeScript", "Supabase", "Midtrans"],
     href: "https://monefi.id/",
     linkLabel: "Visit website",
-    image: "/portfolio/monefi.webp",
+    image: "https://www.monefi.id/dashboard.png",
   },
   {
     id: "cariilmu",
