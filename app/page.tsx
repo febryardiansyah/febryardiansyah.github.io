@@ -9,6 +9,8 @@ import {
   Plus,
   Star,
 } from "lucide-react"
+import ProfilePicture from "@/components/profile-picture"
+import PortfolioMotion from "@/components/portfolio-motion"
 import CoreStack from "@/components/core-stack"
 import SectionNav from "@/components/section-nav"
 import MadeProjectsSection from "@/components/made-projects-section"
@@ -44,6 +46,7 @@ export default async function Home() {
       }))
   return (
     <div id="top">
+      <PortfolioMotion />
       <a className="skip-link" href="#main">
         Skip to content
       </a>
@@ -95,15 +98,7 @@ export default async function Home() {
         </section>
         <MadeProjectsSection />
         <section id="about" className="container content-section about-section">
-          <div className="profile-picture">
-            <img
-              loading="lazy"
-              src="/portfolio/portrait.webp"
-              width={640}
-              height={640}
-              alt="Febry’s illustrated profile portrait"
-            />
-          </div>
+          <ProfilePicture />
           <div className="about-copy">
             <h2>
               About me<span>.</span>
